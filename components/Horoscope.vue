@@ -8,13 +8,21 @@
       <div>{{ horoscope.content }}</div>
       <div>
         <ul>
-          <li>金運: {{ horoscope.money }}</li>
-          <li>仕事運: {{ horoscope.job }}</li>
-          <li>恋愛運: {{ horoscope.love }}</li>
-          <li>総合運: {{ horoscope.total }}</li>
+          <li>金運: <RateStar 
+            :rate="horoscope.money" 
+            :max="5" /></li>
+          <li>仕事運: <RateStar 
+            :rate="horoscope.job" 
+            :max="5" /></li>
+          <li>恋愛運: <RateStar 
+            :rate="horoscope.love" 
+            :max="5" /></li>
+          <li>総合運: <RateStar 
+            :rate="horoscope.total" 
+            :max="5" /></li>
           <li>ラッキーアイテム: {{ horoscope.item }}</li>
           <li>ラッキーカラー: {{ horoscope.color }}</li>
-          <li>ランキング: {{ horoscope.rank }}</li>
+          <li>ランキング: {{ horoscope.rank }}位</li>
         </ul>
       </div>
     </v-card-title>
@@ -22,8 +30,13 @@
 </template>
 
 <script>
+import RateStar from '~/components/RateStar.vue'
+
 export default {
   name: 'Horoscope',
+  components: {
+    RateStar
+  },
   props: {
     horoscope: {
       type: Object,
