@@ -48,12 +48,19 @@
         wrap
       >
         <v-flex
-          py-3
+          xs12
+          my-1
           text-xs-center
         >
           <span>powerd by <a 
             href="http://jugemkey.jp/api/waf/api_free.php" 
             target="_blank">JugemKey</a></span>
+        </v-flex>
+        <v-flex
+          xs12
+          my-1
+          text-xs-center
+        >
           <span>【PR】<a 
             href="http://www.tarim.co.jp/" 
             target="_blank">原宿占い館 塔里木</a></span>
