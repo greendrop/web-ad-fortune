@@ -77,7 +77,10 @@ export default {
       clipped: true,
       drawer: true,
       fixed: false,
-      items: [{ icon: 'today', title: '本日の占い', to: '/' }],
+      items: [
+        { icon: 'today', title: '本日の占い', to: '/' },
+        { icon: 'calendar_today', title: '指定日の占い', to: '/target_date' }
+      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
