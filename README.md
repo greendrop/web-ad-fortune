@@ -1,22 +1,42 @@
 # web-ad-fortune
 
-> My terrific Nuxt.js project
+Web ad Fortune 無料版APIとNuxt.jsを使用した星座占いです。
 
-## Build Setup
+## 使用言語・ライブラリ
 
-``` bash
-# install dependencies
+- Web ad Fortune 無料版API
+- Nuxt.js(Vue.js)
+- Vuetify
+
+## 環境構築アプリケーション
+
+- Docker
+- Docker Compose
+- direnv
+- git
+
+## セットアップ
+
+```shell
+$ git clone git@github.com:greendrop/web-ad-fortune.git
+$ cd web-ad-fortune
+$ vi .envrc
+$ direnv allow
+$ docker-compose pull
+$ docker-compose build
+$ docker-compose run --rm front bash
 $ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
+$ exit
+$ docker-compose up
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+### .envrc
+
+```
+export USER_ID=`id -u`
+export GROUP_ID=`id -g`
+```
+
+## ブラウザで表示
+
+http://localhost:3000
