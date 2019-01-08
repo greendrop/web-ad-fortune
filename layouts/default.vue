@@ -74,7 +74,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: '占い'
+      title: '星座占い'
     }
   }
 }
