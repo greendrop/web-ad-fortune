@@ -1,4 +1,5 @@
 const pkg = require('./package')
+require('dotenv').config()
 
 module.exports = {
   mode: 'spa',
@@ -36,7 +37,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify'],
+  plugins: ['@/plugins/vuetify', { src: '~/plugins/gtm.js', ssr: false }],
 
   /*
   ** Nuxt.js modules
@@ -45,7 +46,8 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['@nuxtjs/google-tag-manager', { id: process.env.GTM_ID }]
   ],
   /*
   ** Axios module configuration
@@ -74,11 +76,11 @@ module.exports = {
     }
   },
   manifest: {
-    name: "星座占い",
-    short_name: "星座占い",
-    author: "星座占い",
-    description: "星座占い",
-    lang: "ja"
+    name: '星座占い',
+    short_name: '星座占い',
+    author: '星座占い',
+    description: '星座占い',
+    lang: 'ja'
   },
   workbox: {
     dev: true
