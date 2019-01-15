@@ -22,6 +22,7 @@ $ git clone git@github.com:greendrop/web-ad-fortune.git
 $ cd web-ad-fortune
 $ vi .envrc
 $ direnv allow
+$ cp .env.example .env
 $ docker-compose pull
 $ docker-compose build
 $ docker-compose run --rm front bash
@@ -35,6 +36,17 @@ $ docker-compose up
 ```
 export USER_ID=`id -u`
 export GROUP_ID=`id -g`
+```
+
+### .env
+
+APIのURL  
+以下URLにはレスポンスヘッダーに`Access-Control-Allow-Origin`が設定されていないため、APIを中継してレスポンスヘッダーを設定するものを用意
+
+Netlify Lambdaの使用例 https://github.com/greendrop/netlify-lambda-web-ad-fortune
+
+```
+API_URL=http://api.jugemkey.jp/api/horoscope/free
 ```
 
 ## ブラウザで表示

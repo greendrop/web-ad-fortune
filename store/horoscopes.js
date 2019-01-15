@@ -10,21 +10,21 @@ export const actions = {
     const year = date.getFullYear()
     const month = date.getMonth() + 1
     const day = date.getDate()
-    const url = `http://api.jugemkey.jp/api/horoscope/free/jsonp/${year}/${month}/${day}`
+    const url = `${process.env.API_URL}/${year}/${month}/${day}`
 
     commit('setLoaded', false)
 
-    jsonp(url, null, (err, data) => {
-      if (err) {
-        commit('setHoroscopes', [])
-      } else {
-        commit(
-          'setHoroscopes',
-          data['horoscope'][Object.keys(data['horoscope'])[0]]
-        )
-      }
-      commit('setLoaded', true)
-    })
+    const response = await this.$axios
+      .get(url)
+      .then(response => {
+        const data = response.data
+        return data['horoscope'][Object.keys(data['horoscope'])[0]]
+      })
+      .catch(() => {
+        return []
+      })
+    commit('setHoroscopes', response)
+    commit('setLoaded', true)
   }
 }
 
