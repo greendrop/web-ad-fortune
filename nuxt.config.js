@@ -44,7 +44,8 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration
@@ -71,5 +72,15 @@ module.exports = {
         })
       }
     }
+  },
+  manifest: {
+    name: "星座占い",
+    short_name: "星座占い",
+    author: "星座占い",
+    description: "星座占い",
+    lang: "ja"
+  },
+  workbox: {
+    dev: true
   }
 }
