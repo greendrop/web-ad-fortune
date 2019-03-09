@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       clipped: true,
-      drawer: false,
+      drawer: null,
       fixed: false,
       items: [
         { icon: 'today', title: '本日の占い', to: '/' },
